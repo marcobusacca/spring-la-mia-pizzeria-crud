@@ -26,7 +26,7 @@ public class MainController {
 		return "pizzas";
 	}
 	
-	@GetMapping("/books/{id}")
+	@GetMapping("/pizzas/{id}")
 	public String getPizza(Model model, @PathVariable int id) {
 		
 		Pizza pizza = pizzaService.findById(id);
