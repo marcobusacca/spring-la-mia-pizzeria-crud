@@ -19,10 +19,11 @@ public class SpringLaMiaPizzeriaCrudApplication implements CommandLineRunner {
 
 	public void run(String... args) throws Exception {
 		
-		pizzaService.save(new Pizza("Margherita", "Descrizione 1", "https://picsum.photos/500/200", 9.3));
-		pizzaService.save(new Pizza("Pepperoni", "Descrizione 2", "https://picsum.photos/500/200", 10.5));
-		pizzaService.save(new Pizza("Siciliana", "Descrizione 3", "https://picsum.photos/500/200", 11.7));
-		pizzaService.save(new Pizza("Quattro Stagioni", "Descrizione 4", "https://picsum.photos/500/200", 12.9));
-		pizzaService.save(new Pizza("Capricciosa", "Descrizione 5", "https://picsum.photos/500/200", 13.1));
+//		pizzaService.save(new Pizza("Margherita", "Descrizione 1", "https://picsum.photos/500/200", 9.3));
+//		pizzaService.save(new Pizza("Pepperoni", "Descrizione 2", "https://picsum.photos/500/200", 10.5));
+//		pizzaService.save(new Pizza("Siciliana", "Descrizione 3", "https://picsum.photos/500/200", 11.7));
+//		pizzaService.save(new Pizza("Quattro Stagioni", "Descrizione 4", "https://picsum.photos/500/200", 12.9));
+//		pizzaService.save(new Pizza("Capricciosa", "Descrizione 5", "https://picsum.photos/500/200", 13.1));
+//		pizzaService.save(new Pizza("Quattro Formaggi", "Descrizione 6", "https://picsum.photos/500/200", 15.50));
 	}
 }

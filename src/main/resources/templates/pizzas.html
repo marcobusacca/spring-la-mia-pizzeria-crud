@@ -8,17 +8,30 @@
 	</head>
 	<style th:replace="frags :: style"></style>
 	<body>
-		<div class="container-fluid app-container border border-black">
+		<div class="container-fluid app-container border rounded-5 shadow">
 			<header th:replace="frags :: header"></header>
 			<main>
 				<div class="container-fluid">
-					<div class="row p-5">
-						<div class="col-12 text-center" th:if="${pizzas.isEmpty()}">
-							<span>Nessun elemento trovato</span>
+					<div class="row justify-content-center p-5">
+						<form>
+							<div class="input-group mb-3">
+							  <input type="text" class="form-control" placeholder="Filtra le pizze per nome"> <!-- name="" th:value="${}" -->
+							  <button class="btn btn-outline-secondary rounded-1" type="submit">Cerca</button>
+							</div>
+						</form>
+						<div th:if="${pizzas.isEmpty()}" class="col-12 text-center my-5">
+							<span class="fs-5">Nessun elemento trovato</span>
 						</div>
-						<a class="col-12 border border-black text-decoration-none text-black text-center fs-5 my-3 py-3" th:each="pizza : ${pizzas}" th:href="@{/pizzas/{pizzaId} (pizzaId=${pizza.getId()})}">
-							<span th:text="${pizza.getNome()}"></span>
-						</a>
+						<div th:each="pizza : ${pizzas}" class="col-6 text-center my-4">
+							<div class="card">
+							  <img th:src="${pizza.getUrl_foto()}" class="card-img-top">
+							  <div class="card-body">
+							    <h5 th:text="${pizza.getNome()}" class="card-title my-3"></h5>
+							    <p th:text="${pizza.getDescrizione()}" class="card-text my-5"></p>
+							    <a th:href="@{/pizzas/{pizzaId} (pizzaId=${pizza.getId()})}" class="btn btn-primary">Dettagli</a>
+							  </div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</main>
