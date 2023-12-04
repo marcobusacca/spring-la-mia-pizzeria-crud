@@ -39,4 +39,14 @@ public class MainController {
 		
 		return "pizza";
 	}
+	
+	@GetMapping("/pizzas/create")
+	public String createPizza(Model model) {
+		
+		Pizza pizza = new Pizza();
+		
+		model.addAttribute("pizza", pizza);
+		
+		return "pizza-form";
+	}
 }
