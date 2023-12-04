@@ -33,5 +33,11 @@
 			<a href="/" th:text="${title}" class="btn btn-primary mx-2 px-4"></a>
 		</div>
 		
+		<div th:fragment="errorDiv(field)" th:if="${#fields.hasErrors(field)}" class="invalid-feedback">
+			<ul>
+			   <li th:each="err : ${#fields.errors(field)}" th:text="${err}"></li>
+			</ul>
+		</div>
+		
 	</body>
 </html>
