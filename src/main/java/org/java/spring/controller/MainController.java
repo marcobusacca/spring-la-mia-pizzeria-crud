@@ -69,4 +69,14 @@ public class MainController {
 		
 		return "redirect:/";
 	}
+	
+	@GetMapping("pizzas/edit/{id}")
+	public String editPizza(Model model, @PathVariable int id) {
+		
+		Pizza pizza = pizzaService.findById(id);
+		
+		model.addAttribute("pizza", pizza);
+		
+		return "pizza-form";
+	}
 }
