@@ -57,6 +57,30 @@ public class MainController {
 	@PostMapping("/pizzas/create")
 	public String storePizza(Model model, @Valid @ModelAttribute Pizza pizza, BindingResult bindingResult) {
 		
+		return savePizza(model, pizza, bindingResult);
+	}
+	
+	@GetMapping("pizzas/edit/{id}")
+	public String editPizza(Model model, @PathVariable int id) {
+		
+		Pizza pizza = pizzaService.findById(id);
+		
+		model.addAttribute("pizza", pizza);
+		
+		return "pizza-form";
+	}
+	@PostMapping("pizzas/edit/{id}")
+	public String updatePizza(Model model, @Valid @ModelAttribute Pizza pizza, BindingResult bindingResult) {
+		
+		return savePizza(model, pizza, bindingResult);
+	}
+	
+	private String savePizza(Model model, @Valid @ModelAttribute Pizza pizza, BindingResult bindingResult) {
+		
+		System.out.println("Pizza:\n" + pizza);
+		System.out.println("\n---------------\n");
+		System.out.println("Error:\n" + bindingResult);
+		
 		if (bindingResult.hasErrors()) {
 			
 			System.out.println(bindingResult);
@@ -68,15 +92,5 @@ public class MainController {
 		pizzaService.save(pizza);
 		
 		return "redirect:/";
-	}
-	
-	@GetMapping("pizzas/edit/{id}")
-	public String editPizza(Model model, @PathVariable int id) {
-		
-		Pizza pizza = pizzaService.findById(id);
-		
-		model.addAttribute("pizza", pizza);
-		
-		return "pizza-form";
 	}
 }
