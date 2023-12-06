@@ -36,9 +36,11 @@
 								<a th:href="@{/pizzas/edit/{pizzaId} (pizzaId=${pizza.getId()})}" class="btn btn-warning">
 									<i class="fas fa-edit"></i>
 								</a>
-								<a th:href="@{/pizzas/{pizzaId} (pizzaId=${pizza.getId()})}" class="btn btn-danger">
-									<i class="fas fa-trash"></i>
-								</a>
+								<form style="display:inline-block" th:action="@{/pizzas/delete/{pizzaId} (pizzaId=${pizza.getId()})}" method="POST">
+									<button type="submit" class="btn btn-danger">
+										<i class="fas fa-trash"></i>
+									</button>
+								</form>
 							  </div>
 							</div>
 						</div>
